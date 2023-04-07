@@ -1,0 +1,6 @@
+framework module Pods_Pawted {
+  umbrella header "Pods-Pawted-umbrella.h"
+
+  export *
+  module * { export * }
+}

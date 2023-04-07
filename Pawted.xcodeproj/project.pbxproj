@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C348629866A69B8E86638E2D /* Pods_Pawted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC76D4C8FF4E403B8E3CFC4 /* Pods_Pawted.framework */; };
+		ED0B2C3C2AE5E89D006BFF76 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B2C3B2AE5E89D006BFF76 /* ToastManager.swift */; };
+		ED0B2C3E2AE5F422006BFF76 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B2C3D2AE5F422006BFF76 /* LoaderView.swift */; };
+		ED26E7DC2A032AC900F676AB /* MultipartFormDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26E7DB2A032AC900F676AB /* MultipartFormDataService.swift */; };
+		ED56CD7F2A012733009D5EEB /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD7E2A012733009D5EEB /* LoginScreen.swift */; };
+		ED56CD812A0127F6009D5EEB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD802A0127F6009D5EEB /* MainView.swift */; };
+		ED56CD862A013B01009D5EEB /* HotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD852A013B01009D5EEB /* HotView.swift */; };
+		ED56CD8A2A013E38009D5EEB /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD892A013E38009D5EEB /* ProductsView.swift */; };
+		ED56CD8D2A013E8B009D5EEB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD8C2A013E8B009D5EEB /* Product.swift */; };
+		ED56CD902A013F19009D5EEB /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD8F2A013F19009D5EEB /* ProductView.swift */; };
+		ED56CD922A0140D9009D5EEB /* ProductsCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD912A0140D9009D5EEB /* ProductsCarousel.swift */; };
+		ED56CD942A0142C0009D5EEB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD932A0142C0009D5EEB /* AccountView.swift */; };
+		ED56CD962A0146CF009D5EEB /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD952A0146CF009D5EEB /* URLImageView.swift */; };
+		ED56CD982A014730009D5EEB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD972A014730009D5EEB /* ImageLoader.swift */; };
+		ED56CD9A2A015A7B009D5EEB /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD992A015A7B009D5EEB /* UserService.swift */; };
+		ED56CD9C2A02B78C009D5EEB /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD9B2A02B78C009D5EEB /* ProductService.swift */; };
+		ED56CD9E2A0324BD009D5EEB /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD9D2A0324BD009D5EEB /* AddProductView.swift */; };
+		ED56CDA12A0327FD009D5EEB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CDA02A0327FD009D5EEB /* ImagePicker.swift */; };
+		ED5B2D592AE7145500701932 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B2D582AE7145500701932 /* Utils.swift */; };
+		ED5B2D5B2AE71F2800701932 /* TestConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B2D5A2AE71F2800701932 /* TestConnectionManager.swift */; };
+		ED8471322ADB0DD100F7CFD8 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED8471312ADB0DD100F7CFD8 /* AppConfig.plist */; };
+		ED8471352ADB178100F7CFD8 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8471342ADB178100F7CFD8 /* AppConfiguration.swift */; };
+		EDC6C0182A054A9200447653 /* URLErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6C0172A054A9200447653 /* URLErrors.swift */; };
+		EDCB7A482A03F7CE003DC725 /* LikeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB7A472A03F7CE003DC725 /* LikeButtonView.swift */; };
+		EDCB7A4B2A0401A6003DC725 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = EDCB7A4A2A0401A6003DC725 /* SimpleToast */; };
+		EDF9CC5E29E0DD6E00ECE010 /* PawtedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9CC5D29E0DD6E00ECE010 /* PawtedApp.swift */; };
+		EDF9CC6029E0DD6E00ECE010 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9CC5F29E0DD6E00ECE010 /* ContentView.swift */; };
+		EDF9CC6229E0DD6E00ECE010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF9CC6129E0DD6E00ECE010 /* Assets.xcassets */; };
+		EDF9CC6529E0DD6E00ECE010 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF9CC6429E0DD6E00ECE010 /* Preview Assets.xcassets */; };
+		EDF9CC6D29E0DDDA00ECE010 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9CC6C29E0DDDA00ECE010 /* WelcomeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6B533F1ACCC6029B93A9E653 /* Pods-Pawted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pawted.debug.xcconfig"; path = "Target Support Files/Pods-Pawted/Pods-Pawted.debug.xcconfig"; sourceTree = "<group>"; };
+		A8C23543BBF0A4D534486990 /* Pods-Pawted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pawted.release.xcconfig"; path = "Target Support Files/Pods-Pawted/Pods-Pawted.release.xcconfig"; sourceTree = "<group>"; };
+		BAC76D4C8FF4E403B8E3CFC4 /* Pods_Pawted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pawted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED0B2C3B2AE5E89D006BFF76 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		ED0B2C3D2AE5F422006BFF76 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		ED26E7DB2A032AC900F676AB /* MultipartFormDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataService.swift; sourceTree = "<group>"; };
+		ED56CD7E2A012733009D5EEB /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		ED56CD802A0127F6009D5EEB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		ED56CD852A013B01009D5EEB /* HotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotView.swift; sourceTree = "<group>"; };
+		ED56CD892A013E38009D5EEB /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		ED56CD8C2A013E8B009D5EEB /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		ED56CD8F2A013F19009D5EEB /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		ED56CD912A0140D9009D5EEB /* ProductsCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCarousel.swift; sourceTree = "<group>"; };
+		ED56CD932A0142C0009D5EEB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		ED56CD952A0146CF009D5EEB /* URLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
+		ED56CD972A014730009D5EEB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		ED56CD992A015A7B009D5EEB /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		ED56CD9B2A02B78C009D5EEB /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		ED56CD9D2A0324BD009D5EEB /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		ED56CDA02A0327FD009D5EEB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		ED5B2D582AE7145500701932 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		ED5B2D5A2AE71F2800701932 /* TestConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConnectionManager.swift; sourceTree = "<group>"; };
+		ED8471302ADB0B8E00F7CFD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ED8471312ADB0DD100F7CFD8 /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
+		ED8471342ADB178100F7CFD8 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		EDC6C0172A054A9200447653 /* URLErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLErrors.swift; sourceTree = "<group>"; };
+		EDCB7A472A03F7CE003DC725 /* LikeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonView.swift; sourceTree = "<group>"; };
+		EDF9CC5A29E0DD6E00ECE010 /* Pawted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pawted.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF9CC5D29E0DD6E00ECE010 /* PawtedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawtedApp.swift; sourceTree = "<group>"; };
+		EDF9CC5F29E0DD6E00ECE010 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EDF9CC6129E0DD6E00ECE010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDF9CC6429E0DD6E00ECE010 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EDF9CC6C29E0DDDA00ECE010 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDF9CC5729E0DD6E00ECE010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDCB7A4B2A0401A6003DC725 /* SimpleToast in Frameworks */,
+				C348629866A69B8E86638E2D /* Pods_Pawted.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B6B4C94F7D7BC96ED42412D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAC76D4C8FF4E403B8E3CFC4 /* Pods_Pawted.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB61F60938D8EEFDD475501C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6B533F1ACCC6029B93A9E653 /* Pods-Pawted.debug.xcconfig */,
+				A8C23543BBF0A4D534486990 /* Pods-Pawted.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED56CD822A012A22009D5EEB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ED56CD972A014730009D5EEB /* ImageLoader.swift */,
+				ED56CD992A015A7B009D5EEB /* UserService.swift */,
+				ED56CD9B2A02B78C009D5EEB /* ProductService.swift */,
+				ED26E7DB2A032AC900F676AB /* MultipartFormDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		ED56CD8B2A013E7E009D5EEB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ED56CD8C2A013E8B009D5EEB /* Product.swift */,
+				EDC6C0172A054A9200447653 /* URLErrors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ED56CD9F2A0327F1009D5EEB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED56CDA02A0327FD009D5EEB /* ImagePicker.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ED8471332ADB176F00F7CFD8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ED8471342ADB178100F7CFD8 /* AppConfiguration.swift */,
+				ED0B2C3B2AE5E89D006BFF76 /* ToastManager.swift */,
+				ED5B2D582AE7145500701932 /* Utils.swift */,
+				ED5B2D5A2AE71F2800701932 /* TestConnectionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EDF9CC5129E0DD6E00ECE010 = {
+			isa = PBXGroup;
+			children = (
+				EDF9CC5C29E0DD6E00ECE010 /* Pawted */,
+				EDF9CC5B29E0DD6E00ECE010 /* Products */,
+				EB61F60938D8EEFDD475501C /* Pods */,
+				B6B4C94F7D7BC96ED42412D3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EDF9CC5B29E0DD6E00ECE010 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDF9CC5A29E0DD6E00ECE010 /* Pawted.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDF9CC5C29E0DD6E00ECE010 /* Pawted */ = {
+			isa = PBXGroup;
+			children = (
+				ED8471332ADB176F00F7CFD8 /* Managers */,
+				ED8471302ADB0B8E00F7CFD8 /* Info.plist */,
+				ED8471312ADB0DD100F7CFD8 /* AppConfig.plist */,
+				ED56CD9F2A0327F1009D5EEB /* Controllers */,
+				ED56CD8B2A013E7E009D5EEB /* Models */,
+				ED56CD822A012A22009D5EEB /* Service */,
+				EDF9CC6B29E0DDC400ECE010 /* Views */,
+				EDF9CC5D29E0DD6E00ECE010 /* PawtedApp.swift */,
+				EDF9CC6129E0DD6E00ECE010 /* Assets.xcassets */,
+				EDF9CC6329E0DD6E00ECE010 /* Preview Content */,
+			);
+			path = Pawted;
+			sourceTree = "<group>";
+		};
+		EDF9CC6329E0DD6E00ECE010 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EDF9CC6429E0DD6E00ECE010 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EDF9CC6B29E0DDC400ECE010 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EDF9CC5F29E0DD6E00ECE010 /* ContentView.swift */,
+				EDF9CC6C29E0DDDA00ECE010 /* WelcomeView.swift */,
+				ED56CD7E2A012733009D5EEB /* LoginScreen.swift */,
+				ED56CD802A0127F6009D5EEB /* MainView.swift */,
+				ED56CD852A013B01009D5EEB /* HotView.swift */,
+				ED56CD892A013E38009D5EEB /* ProductsView.swift */,
+				ED56CD8F2A013F19009D5EEB /* ProductView.swift */,
+				ED56CD912A0140D9009D5EEB /* ProductsCarousel.swift */,
+				ED56CD932A0142C0009D5EEB /* AccountView.swift */,
+				ED56CD952A0146CF009D5EEB /* URLImageView.swift */,
+				ED56CD9D2A0324BD009D5EEB /* AddProductView.swift */,
+				EDCB7A472A03F7CE003DC725 /* LikeButtonView.swift */,
+				ED0B2C3D2AE5F422006BFF76 /* LoaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDF9CC5929E0DD6E00ECE010 /* Pawted */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF9CC6829E0DD6E00ECE010 /* Build configuration list for PBXNativeTarget "Pawted" */;
+			buildPhases = (
+				54D71EC9913F7751F3EDA969 /* [CP] Check Pods Manifest.lock */,
+				EDF9CC5629E0DD6E00ECE010 /* Sources */,
+				EDF9CC5729E0DD6E00ECE010 /* Frameworks */,
+				EDF9CC5829E0DD6E00ECE010 /* Resources */,
+				0DA5C58BED700A626BAFC943 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pawted;
+			packageProductDependencies = (
+				EDCB7A4A2A0401A6003DC725 /* SimpleToast */,
+			);
+			productName = Pawted;
+			productReference = EDF9CC5A29E0DD6E00ECE010 /* Pawted.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDF9CC5229E0DD6E00ECE010 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					EDF9CC5929E0DD6E00ECE010 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = EDF9CC5529E0DD6E00ECE010 /* Build configuration list for PBXProject "Pawted" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDF9CC5129E0DD6E00ECE010;
+			packageReferences = (
+				EDCB7A492A0401A6003DC725 /* XCRemoteSwiftPackageReference "SimpleToast" */,
+			);
+			productRefGroup = EDF9CC5B29E0DD6E00ECE010 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDF9CC5929E0DD6E00ECE010 /* Pawted */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDF9CC5829E0DD6E00ECE010 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8471322ADB0DD100F7CFD8 /* AppConfig.plist in Resources */,
+				EDF9CC6529E0DD6E00ECE010 /* Preview Assets.xcassets in Resources */,
+				EDF9CC6229E0DD6E00ECE010 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DA5C58BED700A626BAFC943 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pawted/Pods-Pawted-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pawted/Pods-Pawted-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pawted/Pods-Pawted-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54D71EC9913F7751F3EDA969 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pawted-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDF9CC5629E0DD6E00ECE010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF9CC6029E0DD6E00ECE010 /* ContentView.swift in Sources */,
+				ED56CD812A0127F6009D5EEB /* MainView.swift in Sources */,
+				ED0B2C3E2AE5F422006BFF76 /* LoaderView.swift in Sources */,
+				ED56CD942A0142C0009D5EEB /* AccountView.swift in Sources */,
+				ED56CD902A013F19009D5EEB /* ProductView.swift in Sources */,
+				ED56CD9A2A015A7B009D5EEB /* UserService.swift in Sources */,
+				ED0B2C3C2AE5E89D006BFF76 /* ToastManager.swift in Sources */,
+				ED26E7DC2A032AC900F676AB /* MultipartFormDataService.swift in Sources */,
+				ED56CD982A014730009D5EEB /* ImageLoader.swift in Sources */,
+				ED56CDA12A0327FD009D5EEB /* ImagePicker.swift in Sources */,
+				EDCB7A482A03F7CE003DC725 /* LikeButtonView.swift in Sources */,
+				EDC6C0182A054A9200447653 /* URLErrors.swift in Sources */,
+				ED56CD922A0140D9009D5EEB /* ProductsCarousel.swift in Sources */,
+				ED5B2D5B2AE71F2800701932 /* TestConnectionManager.swift in Sources */,
+				ED56CD8A2A013E38009D5EEB /* ProductsView.swift in Sources */,
+				ED56CD962A0146CF009D5EEB /* URLImageView.swift in Sources */,
+				ED56CD8D2A013E8B009D5EEB /* Product.swift in Sources */,
+				ED8471352ADB178100F7CFD8 /* AppConfiguration.swift in Sources */,
+				EDF9CC6D29E0DDDA00ECE010 /* WelcomeView.swift in Sources */,
+				ED56CD9E2A0324BD009D5EEB /* AddProductView.swift in Sources */,
+				EDF9CC5E29E0DD6E00ECE010 /* PawtedApp.swift in Sources */,
+				ED56CD7F2A012733009D5EEB /* LoginScreen.swift in Sources */,
+				ED56CD862A013B01009D5EEB /* HotView.swift in Sources */,
+				ED56CD9C2A02B78C009D5EEB /* ProductService.swift in Sources */,
+				ED5B2D592AE7145500701932 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EDF9CC6629E0DD6E00ECE010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDF9CC6729E0DD6E00ECE010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDF9CC6929E0DD6E00ECE010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B533F1ACCC6029B93A9E653 /* Pods-Pawted.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pawted/Preview Content\"";
+				DEVELOPMENT_TEAM = H3PVH8B766;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pawted/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vojsicky.Pawted;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDF9CC6A29E0DD6E00ECE010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C23543BBF0A4D534486990 /* Pods-Pawted.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pawted/Preview Content\"";
+				DEVELOPMENT_TEAM = H3PVH8B766;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pawted/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vojsicky.Pawted;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDF9CC5529E0DD6E00ECE010 /* Build configuration list for PBXProject "Pawted" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF9CC6629E0DD6E00ECE010 /* Debug */,
+				EDF9CC6729E0DD6E00ECE010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF9CC6829E0DD6E00ECE010 /* Build configuration list for PBXNativeTarget "Pawted" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF9CC6929E0DD6E00ECE010 /* Debug */,
+				EDF9CC6A29E0DD6E00ECE010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EDCB7A492A0401A6003DC725 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDCB7A4A2A0401A6003DC725 /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDCB7A492A0401A6003DC725 /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EDF9CC5229E0DD6E00ECE010 /* Project object */;
+}
