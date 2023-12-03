@@ -7,21 +7,24 @@
 
 import Foundation
 
-struct Product: Codable, Identifiable, Equatable {
-    static func == (lhs: Product, rhs: Product) -> Bool {
-        return lhs.id == rhs.id
+struct Product: Codable, Identifiable, Equatable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id) // Assuming 'id' is a property in your Product type
     }
-    var id: String?
+
+    let id: String
     let title: String
     let description: String
     var imageUrl: String?
     var category: ProductCategory?
     let price: Double?
-    var likes: Int = 0
-    
+    var likes: [String]
 }
 
-struct ProductCategory: Codable, Identifiable {
+struct ProductCategory: Codable, Identifiable, Equatable {
+    static func == (lhs: ProductCategory, rhs: ProductCategory) -> Bool {
+        return lhs.id == rhs.id
+    }
     let id: Int
     let tag: String
     let name: String

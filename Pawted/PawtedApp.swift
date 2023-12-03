@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 struct PawtedApp: App {
-    let userService = UserService()
-    let productService = ProductService()
+    @StateObject private var userService = UserService()
+    @StateObject private var productService = ProductService()
     
     var body: some Scene {
         WindowGroup {

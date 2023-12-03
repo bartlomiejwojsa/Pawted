@@ -29,6 +29,7 @@
 		ED5B2D5B2AE71F2800701932 /* TestConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B2D5A2AE71F2800701932 /* TestConnectionManager.swift */; };
 		ED8471322ADB0DD100F7CFD8 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED8471312ADB0DD100F7CFD8 /* AppConfig.plist */; };
 		ED8471352ADB178100F7CFD8 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8471342ADB178100F7CFD8 /* AppConfiguration.swift */; };
+		ED9A4C4A2B1CFA42001DD2F2 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9A4C492B1CFA42001DD2F2 /* ProductViewModel.swift */; };
 		EDC6C0182A054A9200447653 /* URLErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6C0172A054A9200447653 /* URLErrors.swift */; };
 		EDCB7A482A03F7CE003DC725 /* LikeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB7A472A03F7CE003DC725 /* LikeButtonView.swift */; };
 		EDCB7A4B2A0401A6003DC725 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = EDCB7A4A2A0401A6003DC725 /* SimpleToast */; };
@@ -65,6 +66,7 @@
 		ED8471302ADB0B8E00F7CFD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ED8471312ADB0DD100F7CFD8 /* AppConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
 		ED8471342ADB178100F7CFD8 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		ED9A4C492B1CFA42001DD2F2 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		EDC6C0172A054A9200447653 /* URLErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLErrors.swift; sourceTree = "<group>"; };
 		EDCB7A472A03F7CE003DC725 /* LikeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonView.swift; sourceTree = "<group>"; };
 		EDF9CC5A29E0DD6E00ECE010 /* Pawted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pawted.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		ED9A4C482B1CFA35001DD2F2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ED9A4C492B1CFA42001DD2F2 /* ProductViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		EDF9CC5129E0DD6E00ECE010 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		EDF9CC5C29E0DD6E00ECE010 /* Pawted */ = {
 			isa = PBXGroup;
 			children = (
+				ED9A4C482B1CFA35001DD2F2 /* ViewModels */,
 				ED8471332ADB176F00F7CFD8 /* Managers */,
 				ED8471302ADB0B8E00F7CFD8 /* Info.plist */,
 				ED8471312ADB0DD100F7CFD8 /* AppConfig.plist */,
@@ -346,6 +357,7 @@
 				ED56CD962A0146CF009D5EEB /* URLImageView.swift in Sources */,
 				ED56CD8D2A013E8B009D5EEB /* Product.swift in Sources */,
 				ED8471352ADB178100F7CFD8 /* AppConfiguration.swift in Sources */,
+				ED9A4C4A2B1CFA42001DD2F2 /* ProductViewModel.swift in Sources */,
 				EDF9CC6D29E0DDDA00ECE010 /* WelcomeView.swift in Sources */,
 				ED56CD9E2A0324BD009D5EEB /* AddProductView.swift in Sources */,
 				EDF9CC5E29E0DD6E00ECE010 /* PawtedApp.swift in Sources */,

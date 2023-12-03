@@ -6,7 +6,7 @@
 	<string>https://almond-vigorous-shroud.glitch.me</string>
 	<key>TestConnectionToServer</key>
 	<true/>
-	<key>APIAddress1</key>
+	<key>APIAddress__</key>
 	<string>http://localhost:3000</string>
 </dict>
 </plist>

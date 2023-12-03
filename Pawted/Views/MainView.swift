@@ -18,7 +18,7 @@ struct MainView: View {
                     Image(systemName: "flame.fill")
                     Text("Hot")
                 }
-            ProductsView(products: productService.hotProducts, categories: productService.productCategories)
+            ProductsView()
                 .tabItem {
                     Image(systemName: "cart.fill")
                     Text("Products")
@@ -42,12 +42,6 @@ struct MainView: View {
 //
         }
         .background(Color.red)
-        .onAppear {
-            if let safeUser = userService.appUser {
-                productService.getProductCategories(user: safeUser)
-                productService.getHotProducts(user: safeUser)
-            }
-        }
         .onChange(of: productService.lastErrorCode) { newValue in
             if newValue == .unauthorized {
                 userService.logout()

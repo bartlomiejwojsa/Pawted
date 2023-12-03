@@ -80,7 +80,7 @@ struct AddProductView: View {
                         guard let safeUser = userService.appUser else {
                             return
                         }
-                        let product = Product(title: title, description: description, price: Double(price))
+                        let product = Product(id: "-1", title: title, description: description, price: Double(price), likes: [])
                         
                         DispatchQueue.main.async {
                             productService.addProduct(product, categoryTag: category, image: image, user: safeUser)

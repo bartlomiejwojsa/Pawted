@@ -7,29 +7,31 @@
 
 import SwiftUI
 
-struct ProductView: View, Equatable {
-    static func == (lhs: ProductView, rhs: ProductView) -> Bool {
-        return lhs.product == rhs.product && lhs.isLiked == rhs.isLiked
-    }
-    let product: Product
+struct ProductView: View {
+    @ObservedObject var viewModel: ProductViewModel
+    
     private var productImageUrl: String
     private var productTitle: String
     @EnvironmentObject var userService: UserService
     @EnvironmentObject var productService: ProductService
 
-    @State private var isLiked: Bool  // Pass the isLiked binding from outside
+    
+    let width: CGFloat
+    let height: CGFloat
+//    @State private var isLiked: Bool  // Pass the isLiked binding from outside
 
-    init(product: Product) {
-        self.product = product
-        self.productImageUrl = product.imageUrl ?? ""
-        self.productTitle = product.title
-        self.isLiked = product.likes > 0
+    init(viewModel: ProductViewModel, width: CGFloat, height: CGFloat) {
+        self.viewModel = viewModel
+        self.productImageUrl = viewModel.product.imageUrl ?? ""
+        self.productTitle = viewModel.product.title
+        self.width = width
+        self.height = height
     }
     
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 10) {
-                URLImageView(url: productImageUrl)
+                URLImageView(url: viewModel.product.imageUrl ?? "")
                     .scaledToFill()
                     .frame(width: geometry.size.width, height: geometry.size.width)
                     .clipped()
@@ -38,34 +40,43 @@ struct ProductView: View, Equatable {
                         .font(.headline)
                         .lineLimit(1)
                     Spacer()
-                    LikeButtonView(isLiked: $isLiked)
+                    LikeButtonView(productVM: viewModel)
                 }
                 Spacer()
 
             }
             .background(Color.systemBackground)
             .onTapGesture(count: 2) {
-                DispatchQueue.main.async {
-                    self.isLiked.toggle()
-                }
-                
-            }
-            .onChange(of: isLiked) { newValue in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    if let user = userService.appUser {
-                        DispatchQueue.main.async {
-                            self.productService.updateLike(for: self.product, by: user, isLiked: newValue)
+                if let user = userService.appUser {
+                    DispatchQueue.main.async {
+                        let isCurrentlyLiked = self.viewModel.product.likes.contains(user.nick)
+                        let beforeActionVM = self.viewModel.product.likes
+                        withAnimation {
+                            if (!isCurrentlyLiked) {
+                                self.viewModel.product.likes.append(user.nick)
+                            } else if (isCurrentlyLiked) {
+                                self.viewModel.product.likes.remove(
+                                    at: self.viewModel.product.likes.firstIndex(of: user.nick) ?? -1
+                                )
+                            }
+                        }
+                        self.productService.updateLike(for: self.viewModel.product, by: user, value: !isCurrentlyLiked) { result, error in
+                            if !result {
+                                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                                // revert model update
+                                self.viewModel.product.likes = beforeActionVM
+                            }
                         }
                     }
-                    
-                })
+                }
             }
         }
+        .frame(width: self.width, height: self.height)
     }
 }
-
-struct ProductView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductView(product: Product(id: "000", title: "test",description: "XD", imageUrl: "https://fastly.picsum.photos/id/307/200/300.jpg?hmac=35wY422fzycUwe-jX9k1JwdWurkBiowwCBswfyVXY4E", price: 10, likes: 5))
-    }
-}
+//
+//struct ProductView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductView(product: Product(id: "000", title: "test",description: "XD", imageUrl: "https://fastly.picsum.photos/id/307/200/300.jpg?hmac=35wY422fzycUwe-jX9k1JwdWurkBiowwCBswfyVXY4E", price: 10, likes: []))
+//    }
+//}

@@ -11,31 +11,29 @@ struct ProductsView: View {
     @EnvironmentObject var productService: ProductService
     @EnvironmentObject var userService: UserService
     
-    let products: [Product]
-    let categories: [ProductCategory]
 
     private let defaultCategory: ProductCategory = ProductCategory(id: 0, tag: "ALL", name: "All", description: "All categories")
     @State private var categorySelection: String = "ALL"
     
     var filteredProducts: [Product] {
         if categorySelection == defaultCategory.tag {
-            return products
+            return productService.hotProducts
         } else {
-            return products.filter { $0.category?.tag == categorySelection }
+            return productService.hotProducts.filter { $0.category?.tag == categorySelection }
         }
     }
     
     var body: some View {
         VStack() {
             Picker(selection: $categorySelection, label: Text("Select category")) {
-                ForEach([defaultCategory] + categories, id: \.id) { category in
+                ForEach([defaultCategory] + productService.productCategories, id: \.id) { category in
                     Text(category.name).tag(category.tag)
                 }
             }
             .pickerStyle(MenuPickerStyle())
             .padding(.horizontal, 16)
             
-            if (products.isEmpty) {
+            if (productService.hotProducts.isEmpty) {
                 Spacer()
                 HStack {
                     Text("Nothing here...")
@@ -46,9 +44,9 @@ struct ProductsView: View {
             } else {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible(maximum: 250), spacing: 24), GridItem(.flexible(maximum: 250), spacing: 24)], spacing: 24) {
-                        ForEach(filteredProducts) { product in
-                            ProductView(product: product)
-                                .frame(width: 180, height: 250)
+                        ForEach(filteredProducts, id: \.id) { product in
+                            ProductView(viewModel: ProductViewModel(product: product), width: 180, height: 250)
+                                .id(product.id)
                         }
                     }
                 }
@@ -63,9 +61,9 @@ struct ProductsView: View {
         }
     }
 }
-
-struct ProductsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductsView(products: [], categories: [])
-    }
-}
+//
+//struct ProductsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductsView()
+//    }
+//}

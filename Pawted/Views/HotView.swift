@@ -10,20 +10,27 @@ import SwiftUI
 
 
 struct HotView: View {
-//    @State var products: [Product] = []
     @EnvironmentObject var productService: ProductService
     @EnvironmentObject var userService: UserService
+    @State var productsReady: Bool = false
+    @State var productCategoriesReady: Bool = false
 
     var body: some View {
         ScrollView {
-            ForEach(productService.productCategories.sorted(by: { prodCat1, prodCat2 in
-                prodCat1.id < prodCat2.id
-            }), id: \.id) { category in
-                ProductsCarousel(
-                    products: productService.hotProducts.filter { $0.category?.tag ?? "" == category.tag },
-                    title: category.name
-                )
+            if (productsReady && productCategoriesReady) {
+                let productCats = productService.productCategories.sorted(by: { prodCat1, prodCat2 in
+                    prodCat1.id < prodCat2.id
+                })
+                ForEach(productCats, id: \.id) { category in
+                    let carouselProducts = productService.hotProducts.filter { $0.category?.tag ?? "" == category.tag }
+                    ProductsCarousel(
+                        products: carouselProducts,
+                        title: category.name
+                    )
+                    .id(category.id)
+                }
             }
+
         }
         .scrollIndicators(.hidden)
         .onAppear {
@@ -32,13 +39,23 @@ struct HotView: View {
                 productService.getHotProducts(user: safeUser)
             }
         }
+        .onChange(of: productService.hotProducts) { newValue in
+            if !newValue.isEmpty {
+                productsReady = true
+            }
+        }
+        .onChange(of: productService.productCategories) { newValue in
+            if !newValue.isEmpty {
+                productCategoriesReady = true
+            }
+        }
     }
 }
 
-struct HotView_Previews: PreviewProvider {
-    static var previews: some View {
-        HotView()
-            .environmentObject(ProductService())
-            .environmentObject(UserService())
-    }
-}
+//struct HotView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HotView()
+//            .environmentObject(ProductService())
+//            .environmentObject(UserService())
+//    }
+//}

@@ -31,15 +31,14 @@ class ProductService: ObservableObject {
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw HTTPError.badServerResponse
                 }
-                guard (200..<300).contains(httpResponse.statusCode) else {
-                    if (401...403).contains(httpResponse.statusCode) {
-                        // should be logout
-                        throw HTTPError.unauthorized
-                    }
+                switch httpResponse.statusCode {
+                case 200..<300:
+                    return data
+                case 401...403:
+                    throw HTTPError.unauthorized
+                default:
                     throw HTTPError.badServerResponse
                 }
-
-                return data
             }
             .decode(type: GetProductCategoriesDto.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
@@ -98,13 +97,13 @@ class ProductService: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func updateLike(for product: Product, by user: User, isLiked: Bool) {
+    func updateLike(for product: Product, by user: User, value: Bool, completion: @escaping (Bool, Error?) -> Void) {
         guard let url = URL(string: "\(apiAddress)/api/products/\(product.id ?? "")") else {
             self.lastErrorMessage = "Invalid URL"
+            completion(false, NSError(domain: "Invalid URL", code: 0, userInfo: nil))
             return
         }
-        
-        let body = ["like": ["userId": user._id, "value": (isLiked ? 1 : 0)]]
+        let body = ["like": ["user": user.nick, "value": (value ? 1 : 0)]]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         var request = URLRequest(url: url)
@@ -117,6 +116,7 @@ class ProductService: ObservableObject {
             guard let data = data else {
                 DispatchQueue.main.async {
                     self.lastErrorMessage = error?.localizedDescription ?? "Unknown error"
+                    completion(false, error)
                 }
                 return
             }
@@ -125,24 +125,31 @@ class ProductService: ObservableObject {
                 guard response.success else {
                     DispatchQueue.main.async {
                         self.lastErrorMessage = response.message
+                        completion(false, NSError(domain: response.message, code: 0, userInfo: nil))
                     }
                     return
                 }
                 DispatchQueue.main.async {
                     var newProduct = product
-                    newProduct.likes = (isLiked ? 1 : 0)
-                    let newProducts = self.hotProducts.map { prod in
-                        var updatedProd = prod
-                        if updatedProd.id == product.id {
-                            updatedProd.likes = newProduct.likes
-                        }
-                        return updatedProd
+                    var currentLikes = product.likes
+                    if (!currentLikes.contains(user.nick) && value) {
+                        newProduct.likes.append(user.nick)
+                    } else if (currentLikes.contains(user.nick) && !value) {
+                        newProduct.likes.remove(at: newProduct.likes.firstIndex(of: user.nick) ?? -1)
                     }
-                    self.hotProducts = newProducts
+                    
+                    let updatedProductIndex = self.hotProducts.firstIndex { product in
+                        product.id == newProduct.id
+                    }
+                    if let safeIndex = updatedProductIndex {
+                        self.hotProducts[safeIndex] = newProduct
+                    }
+                    completion(true, nil)
                 }
             } catch {
                 DispatchQueue.main.async {
                     self.lastErrorMessage = error.localizedDescription
+                    completion(false, error)
                 }
             }
         }

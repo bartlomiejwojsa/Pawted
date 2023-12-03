@@ -27,8 +27,8 @@ struct ProductsCarousel: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 50) {
                         ForEach(products, id: \.id) { product in
-                            ProductView(product: product)
-                                .frame(width: 250, height: 300)
+                            ProductView(viewModel: ProductViewModel(product: product), width: 250, height: 300)
+                                .id(product.id)
                         }
                     }
                     .padding(.horizontal)
@@ -38,8 +38,8 @@ struct ProductsCarousel: View {
     }
 }
 
-struct ProductsCarousel_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductsCarousel(products:[Product(id: "0000", title: "test", description: "XD", imageUrl: "test", price: 10, likes: 5)], title: "Kitties")
-    }
-}
+//struct ProductsCarousel_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductsCarousel(products:[Product(id: "0000", title: "test", description: "XD", imageUrl: "test", price: 10, likes: [])], title: "Kitties")
+//    }
+//}

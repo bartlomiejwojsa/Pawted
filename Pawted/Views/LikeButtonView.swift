@@ -8,32 +8,27 @@
 import SwiftUI
 
 struct LikeButtonView: View {
-    @Binding var isLiked: Bool
-    
-    @State var animateLiked: Bool = false
+    @EnvironmentObject var userService: UserService
+    @ObservedObject var productVM: ProductViewModel
+
+    init(productVM: ProductViewModel) {
+        self.productVM = productVM
+    }
+
     var body: some View {
         HStack {
-            Image(systemName: animateLiked ? "heart.fill" : "heart")
-                .foregroundColor(animateLiked ? .red : .gray)
+            Image(systemName: productVM.product.likes.contains(userService.appUser?.nick ?? "") ? "heart.fill" : "heart")
+                .foregroundColor(productVM.product.likes.contains(userService.appUser?.nick ?? "") ? .red : .gray)
         }
-        .onAppear {
-            animateLiked = isLiked
-        }
-        .onChange(of: isLiked) { newValue in
-            withAnimation {
-                animateLiked = isLiked
-            }
-        }
-
     }
 }
 
-struct LikeButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        LikeButtonView(
-            isLiked: .constant(true)
-        )
-        .environmentObject(UserService())
-        .environmentObject(ProductService())
-    }
-}
+//struct LikeButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LikeButtonView(
+//            isLiked: .constant(true)
+//        )
+//        .environmentObject(UserService())
+//        .environmentObject(ProductService())
+//    }
+//}
