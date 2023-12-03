@@ -25,14 +25,18 @@ struct ProductsView: View {
     
     var body: some View {
         VStack() {
-            Picker(selection: $categorySelection, label: Text("Select category")) {
-                ForEach([defaultCategory] + productService.productCategories, id: \.id) { category in
-                    Text(category.name).tag(category.tag)
+            HStack {
+                Picker(selection: $categorySelection, label: Text("Select category")) {
+                    ForEach([defaultCategory] + productService.productCategories, id: \.id) { category in
+                        Text(category.name).tag(category.tag)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                    }
                 }
+                .pickerStyle(SegmentedPickerStyle()) // Use SegmentedPickerStyle for a different look
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+                .padding()
+                
             }
-            .pickerStyle(MenuPickerStyle())
-            .padding(.horizontal, 16)
-            
             if (productService.hotProducts.isEmpty) {
                 Spacer()
                 HStack {

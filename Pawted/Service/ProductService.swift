@@ -98,7 +98,7 @@ class ProductService: ObservableObject {
     }
     
     func updateLike(for product: Product, by user: User, value: Bool, completion: @escaping (Bool, Error?) -> Void) {
-        guard let url = URL(string: "\(apiAddress)/api/products/\(product.id ?? "")") else {
+        guard let url = URL(string: "\(apiAddress)/api/products/\(product.id )") else {
             self.lastErrorMessage = "Invalid URL"
             completion(false, NSError(domain: "Invalid URL", code: 0, userInfo: nil))
             return
@@ -131,7 +131,7 @@ class ProductService: ObservableObject {
                 }
                 DispatchQueue.main.async {
                     var newProduct = product
-                    var currentLikes = product.likes
+                    let currentLikes = product.likes
                     if (!currentLikes.contains(user.nick) && value) {
                         newProduct.likes.append(user.nick)
                     } else if (currentLikes.contains(user.nick) && !value) {
@@ -182,6 +182,7 @@ class ProductService: ObservableObject {
                     print("Error while uploading photo", error)
                 case .success(_):
                     print("New photo has been uploaded")
+                    self.getHotProducts(user: user)
                     
                 }
             }
