@@ -4,9 +4,13 @@
 <dict>
 	<key>APIAddress</key>
 	<string>https://almond-vigorous-shroud.glitch.me</string>
-	<key>TestConnectionToServer</key>
-	<true/>
+	<key>WSSAddress</key>
+	<string>wss://almond-vigorous-shroud.glitch.me/wss</string>
 	<key>APIAddress__</key>
 	<string>http://localhost:3000</string>
+	<key>WSSAddress__</key>
+	<string>ws://localhost:3000/wss</string>
+	<key>TestConnectionToServer</key>
+	<true/>
 </dict>
 </plist>

@@ -25,6 +25,9 @@ class AppConfiguration {
     var apiAddress: String {
         return configuration["APIAddress"] as? String ?? "http://0.0.0.0:3000"
     }
+    var wssAddress: String {
+        return configuration["WSSAddress"] as? String ?? "ws://0.0.0.0:3000"
+    }
     var shouldTestConnection: Bool {
         return configuration["TestConnectionToServer"] as? Bool ?? false
     }

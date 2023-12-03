@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct PawtedApp: App {
+//    @StateObject private var webSocketManager = WebSocketManager()
     @StateObject private var userService = UserService()
     @StateObject private var productService = ProductService()
     

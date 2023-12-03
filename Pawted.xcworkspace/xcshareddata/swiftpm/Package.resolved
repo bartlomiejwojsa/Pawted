@@ -8,6 +8,15 @@
         "revision" : "2e68071b1083b91a79506e77f826ee52201d224e",
         "version" : "0.7.1"
       }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream.git",
+      "state" : {
+        "revision" : "ac6c0fc9da221873e01bd1a0d4818498a71eef33",
+        "version" : "4.0.6"
+      }
     }
   ],
   "version" : 2

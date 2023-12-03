@@ -10,6 +10,10 @@
 		C348629866A69B8E86638E2D /* Pods_Pawted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC76D4C8FF4E403B8E3CFC4 /* Pods_Pawted.framework */; };
 		ED0B2C3C2AE5E89D006BFF76 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B2C3B2AE5E89D006BFF76 /* ToastManager.swift */; };
 		ED0B2C3E2AE5F422006BFF76 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B2C3D2AE5F422006BFF76 /* LoaderView.swift */; };
+		ED0BF0C42B1D1AAC006B4004 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BF0C32B1D1AAC006B4004 /* WebSocketManager.swift */; };
+		ED0BF0C72B1D1AE2006B4004 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = ED0BF0C62B1D1AE2006B4004 /* Starscream */; };
+		ED0BF0C92B1D486E006B4004 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BF0C82B1D486E006B4004 /* ProductImageView.swift */; };
+		ED0BF0CB2B1D4901006B4004 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BF0CA2B1D4901006B4004 /* ProductDetailsView.swift */; };
 		ED26E7DC2A032AC900F676AB /* MultipartFormDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26E7DB2A032AC900F676AB /* MultipartFormDataService.swift */; };
 		ED56CD7F2A012733009D5EEB /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD7E2A012733009D5EEB /* LoginScreen.swift */; };
 		ED56CD812A0127F6009D5EEB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD802A0127F6009D5EEB /* MainView.swift */; };
@@ -46,6 +50,9 @@
 		BAC76D4C8FF4E403B8E3CFC4 /* Pods_Pawted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pawted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0B2C3B2AE5E89D006BFF76 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		ED0B2C3D2AE5F422006BFF76 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		ED0BF0C32B1D1AAC006B4004 /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		ED0BF0C82B1D486E006B4004 /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
+		ED0BF0CA2B1D4901006B4004 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		ED26E7DB2A032AC900F676AB /* MultipartFormDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataService.swift; sourceTree = "<group>"; };
 		ED56CD7E2A012733009D5EEB /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		ED56CD802A0127F6009D5EEB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -84,6 +91,7 @@
 			files = (
 				EDCB7A4B2A0401A6003DC725 /* SimpleToast in Frameworks */,
 				C348629866A69B8E86638E2D /* Pods_Pawted.framework in Frameworks */,
+				ED0BF0C72B1D1AE2006B4004 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +146,7 @@
 		ED8471332ADB176F00F7CFD8 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				ED0BF0C32B1D1AAC006B4004 /* WebSocketManager.swift */,
 				ED8471342ADB178100F7CFD8 /* AppConfiguration.swift */,
 				ED0B2C3B2AE5E89D006BFF76 /* ToastManager.swift */,
 				ED5B2D582AE7145500701932 /* Utils.swift */,
@@ -208,6 +217,8 @@
 				ED56CD852A013B01009D5EEB /* HotView.swift */,
 				ED56CD892A013E38009D5EEB /* ProductsView.swift */,
 				ED56CD8F2A013F19009D5EEB /* ProductView.swift */,
+				ED0BF0C82B1D486E006B4004 /* ProductImageView.swift */,
+				ED0BF0CA2B1D4901006B4004 /* ProductDetailsView.swift */,
 				ED56CD912A0140D9009D5EEB /* ProductsCarousel.swift */,
 				ED56CD932A0142C0009D5EEB /* AccountView.swift */,
 				ED56CD952A0146CF009D5EEB /* URLImageView.swift */,
@@ -238,6 +249,7 @@
 			name = Pawted;
 			packageProductDependencies = (
 				EDCB7A4A2A0401A6003DC725 /* SimpleToast */,
+				ED0BF0C62B1D1AE2006B4004 /* Starscream */,
 			);
 			productName = Pawted;
 			productReference = EDF9CC5A29E0DD6E00ECE010 /* Pawted.app */;
@@ -251,7 +263,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					EDF9CC5929E0DD6E00ECE010 = {
 						CreatedOnToolsVersion = 14.2;
@@ -269,6 +281,7 @@
 			mainGroup = EDF9CC5129E0DD6E00ECE010;
 			packageReferences = (
 				EDCB7A492A0401A6003DC725 /* XCRemoteSwiftPackageReference "SimpleToast" */,
+				ED0BF0C52B1D1AE2006B4004 /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = EDF9CC5B29E0DD6E00ECE010 /* Products */;
 			projectDirPath = "";
@@ -344,16 +357,19 @@
 				ED0B2C3E2AE5F422006BFF76 /* LoaderView.swift in Sources */,
 				ED56CD942A0142C0009D5EEB /* AccountView.swift in Sources */,
 				ED56CD902A013F19009D5EEB /* ProductView.swift in Sources */,
+				ED0BF0C42B1D1AAC006B4004 /* WebSocketManager.swift in Sources */,
 				ED56CD9A2A015A7B009D5EEB /* UserService.swift in Sources */,
 				ED0B2C3C2AE5E89D006BFF76 /* ToastManager.swift in Sources */,
 				ED26E7DC2A032AC900F676AB /* MultipartFormDataService.swift in Sources */,
 				ED56CD982A014730009D5EEB /* ImageLoader.swift in Sources */,
 				ED56CDA12A0327FD009D5EEB /* ImagePicker.swift in Sources */,
 				EDCB7A482A03F7CE003DC725 /* LikeButtonView.swift in Sources */,
+				ED0BF0CB2B1D4901006B4004 /* ProductDetailsView.swift in Sources */,
 				EDC6C0182A054A9200447653 /* URLErrors.swift in Sources */,
 				ED56CD922A0140D9009D5EEB /* ProductsCarousel.swift in Sources */,
 				ED5B2D5B2AE71F2800701932 /* TestConnectionManager.swift in Sources */,
 				ED56CD8A2A013E38009D5EEB /* ProductsView.swift in Sources */,
+				ED0BF0C92B1D486E006B4004 /* ProductImageView.swift in Sources */,
 				ED56CD962A0146CF009D5EEB /* URLImageView.swift in Sources */,
 				ED56CD8D2A013E8B009D5EEB /* Product.swift in Sources */,
 				ED8471352ADB178100F7CFD8 /* AppConfiguration.swift in Sources */,
@@ -407,6 +423,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -467,6 +484,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -571,6 +589,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		ED0BF0C52B1D1AE2006B4004 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.6;
+			};
+		};
 		EDCB7A492A0401A6003DC725 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sanzaru/SimpleToast.git";
@@ -582,6 +608,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		ED0BF0C62B1D1AE2006B4004 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED0BF0C52B1D1AE2006B4004 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
 		EDCB7A4A2A0401A6003DC725 /* SimpleToast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EDCB7A492A0401A6003DC725 /* XCRemoteSwiftPackageReference "SimpleToast" */;

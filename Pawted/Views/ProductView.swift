@@ -18,7 +18,6 @@ struct ProductView: View {
     
     let width: CGFloat
     let height: CGFloat
-//    @State private var isLiked: Bool  // Pass the isLiked binding from outside
 
     init(viewModel: ProductViewModel, width: CGFloat, height: CGFloat) {
         self.viewModel = viewModel
@@ -31,15 +30,13 @@ struct ProductView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 10) {
-                URLImageView(url: viewModel.product.imageUrl ?? "")
-                    .scaledToFill()
-                    .frame(width: geometry.size.width, height: geometry.size.width)
-                    .clipped()
+                ProductImageView(viewModel: viewModel, withURL: viewModel.product.imageUrl ?? "", width: geometry.size.width)
                 HStack {
                     Text(productTitle)
                         .font(.headline)
                         .lineLimit(1)
                     Spacer()
+                    Text("$\(String(format: "%.2f", viewModel.product.price ?? 0.00))")
                     LikeButtonView(productVM: viewModel)
                 }
                 Spacer()
@@ -74,9 +71,11 @@ struct ProductView: View {
         .frame(width: self.width, height: self.height)
     }
 }
-//
-//struct ProductView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductView(product: Product(id: "000", title: "test",description: "XD", imageUrl: "https://fastly.picsum.photos/id/307/200/300.jpg?hmac=35wY422fzycUwe-jX9k1JwdWurkBiowwCBswfyVXY4E", price: 10, likes: []))
-//    }
-//}
+
+struct ProductView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductView(viewModel: ProductViewModel(product: Product(id: "000", title: "test",description: "XD", userId: ProductUser(email: "xd", nick: "xd"), imageUrl: "https://fastly.picsum.photos/id/307/200/300.jpg?hmac=35wY422fzycUwe-jX9k1JwdWurkBiowwCBswfyVXY4E", price: 10, likes: [])), width: 100, height: 100)
+            .environmentObject(ProductService())
+            .environmentObject(UserService())
+    }
+}

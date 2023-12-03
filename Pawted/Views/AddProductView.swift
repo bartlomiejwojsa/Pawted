@@ -31,106 +31,120 @@ struct AddProductView: View {
 
     
     var body: some View {
-        ZStack {
-            Form {
-                Section(header: Text("Add product").font(.title)) {
-                    TextField("Title", text: $title)
-                        .border((formErrorMessage != nil && !isTitleValid) ? Color.red : Color.clear)
-                    
-                    Picker("Category", selection: $category) {
-                        ForEach(productService.productCategories) { category in
-                            Text(category.name).tag(category.tag)
-                        }
-                    }
-                    TextField("Price", text: $price)
-                        .keyboardType(.decimalPad)
-                        .onChange(of: price) { newValue in
-                            price = Utils.parseStringToDecimal(text: newValue, precision: 2) ?? ""
-                        }
-                        .border((formErrorMessage != nil && !isPriceValid) ? Color.red : Color.clear)
-                    TextEditor(text: $description)
-                        .frame(height: 150)
-                        .border((formErrorMessage != nil && !isDescriptionValid) ? Color.red : Color.clear)
-                }
-                Section(header: 
-                    Text("Image")
-                        .border((formErrorMessage != nil && !isImageValid) ? Color.red : Color.clear)
-                ) {
-                    SelectedImageView(image: $image, isShowingImagePicker: $isShowingImagePicker)
-                        .frame(height: 250)
-                }
-                .listRowInsets(EdgeInsets())
-                
-                Section {
-                    Button("Add Product") {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        if (!isTitleValid || !isPriceValid || !isDescriptionValid || !isCategoryValid || !isImageValid) {
-                            DispatchQueue.main.async {
-                                self.formErrorMessage = "Form incomplete"
-                                withAnimation {
-                                    showFormInvalid.toggle()
+        VStack {
+            ZStack {
+                HStack {
+                    Form {
+                        Section(header: Text("Add product").font(.title)) {
+                            TextField("Title", text: $title)
+                                .border((formErrorMessage != nil && !isTitleValid) ? Color.red : Color.clear)
+                            TextField("Price", text: $price)
+                                .keyboardType(.decimalPad)
+                                .onChange(of: price) { newValue in
+                                    price = Utils.parseStringToDecimal(text: newValue, precision: 2) ?? ""
                                 }
-                            }
-                            return
+                                .border((formErrorMessage != nil && !isPriceValid) ? Color.red : Color.clear)
+                            TextEditor(text: $description)
+                                .frame(height: 150)
+                                .border((formErrorMessage != nil && !isDescriptionValid) ? Color.red : Color.clear)
                         }
-                        guard let image = image else {
-                            return
+                        Section(header:
+                            Text("Image")
+                                .border((formErrorMessage != nil && !isImageValid) ? Color.red : Color.clear)
+                        ) {
+                            SelectedImageView(image: $image, isShowingImagePicker: $isShowingImagePicker)
+                                .frame(height: 250)
                         }
-                        self.formErrorMessage = nil
-                        guard let safeUser = userService.appUser else {
-                            return
-                        }
-                        let product = Product(id: "-1", title: title, description: description, price: Double(price), likes: [])
-                        
-                        DispatchQueue.main.async {
-                            productService.addProduct(product, categoryTag: category, image: image, user: safeUser)
-                            withAnimation {
-                                showNewProductAdded.toggle()
-                            }
-                            title = ""
-                            description = ""
-                            price = ""
-                            self.image = nil
-                            
-                        }
+                        .listRowInsets(EdgeInsets())
+                    }
+                    .onAppear {
+                        self.category = productService.productCategories.first?.tag ?? ""
+                    }
+                    .onChange(of: title, perform: { value in
+                        isTitleValid = !value.isEmpty // or add your own validation check here
+                    })
+                    .onChange(of: description, perform: { value in
+                        isDescriptionValid = !value.isEmpty // or add your own validation check here
+                    })
+                    .onChange(of: price, perform: { value in
+                        isPriceValid = Double(value) != nil // or add your own validation check here
+                    })
+                    .onChange(of: category, perform: { value in
+                        isCategoryValid = productService.productCategories.map({ category in
+                            return category.tag
+                        }).contains(value)
+                    })
+                    .onChange(of: image, perform: { value in
+                        isImageValid = (value != nil) // or add your own validation check here
+                    })
+                    .sheet(isPresented: $isShowingImagePicker) {
+                        ImagePicker(selectedImage: $image)
+                    }
+                    .presentStandardBottomToast(isPresented: $showNewProductAdded) {
+                        ToastManager.getOperationToast(
+                            message: "New product has been added!")
+                    }
+                    .presentStandardBottomToast(isPresented: $showFormInvalid) {
+                        ToastManager.getOperationToast(
+                            message: "Complete empty fields!", iconSystemName: "exclamationmark.circle"
+                        )
                     }
                 }
+                .onTapGesture {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
             }
-            .onAppear {
-                self.category = productService.productCategories.first?.tag ?? ""
-            }
-            .onChange(of: title, perform: { value in
-                isTitleValid = !value.isEmpty // or add your own validation check here
+            Picker("Category", selection: $category) {
+                    ForEach(productService.productCategories, id: \.id) { cat in
+                        Text(cat.name).tag(cat.tag)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle()) // Use SegmentedPickerStyle for a different look
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+                .padding()
+                .frame(maxWidth: .infinity)
+            Button(action: {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                if (!isTitleValid || !isPriceValid || !isDescriptionValid || !isCategoryValid || !isImageValid) {
+                    DispatchQueue.main.async {
+                        self.formErrorMessage = "Form incomplete"
+                        withAnimation {
+                            showFormInvalid.toggle()
+                        }
+                    }
+                    return
+                }
+                guard let image = image else {
+                    return
+                }
+                self.formErrorMessage = nil
+                guard let safeUser = userService.appUser else {
+                    return
+                }
+                let product = Product(id: "-1", title: title, description: description, userId: ProductUser(email: safeUser.email, nick: safeUser.nick), price: Double(price), likes: [])
+                
+                DispatchQueue.main.async {
+                    productService.addProduct(product, categoryTag: category, image: image, user: safeUser)
+                    withAnimation {
+                        showNewProductAdded.toggle()
+                    }
+                    title = ""
+                    description = ""
+                    price = ""
+                    self.image = nil
+                }
+            }, label: {
+                Text("Add Product")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 80)
+                    .padding(.vertical, 15)
+                    .background(Color.blue)
+                    .cornerRadius(30)
             })
-            .onChange(of: description, perform: { value in
-                isDescriptionValid = !value.isEmpty // or add your own validation check here
-            })
-            .onChange(of: price, perform: { value in
-                isPriceValid = Double(value) != nil // or add your own validation check here
-            })
-            .onChange(of: category, perform: { value in
-                isCategoryValid = productService.productCategories.map({ category in
-                    return category.tag
-                }).contains(value)
-            })
-            .onChange(of: image, perform: { value in
-                isImageValid = (value != nil) // or add your own validation check here
-            })
-            .sheet(isPresented: $isShowingImagePicker) {
-                ImagePicker(selectedImage: $image)
-            }
-            .presentStandardBottomToast(isPresented: $showNewProductAdded) {
-                ToastManager.getOperationToast(
-                    message: "New product has been added!")
-            }
-            .presentStandardBottomToast(isPresented: $showFormInvalid) {
-                ToastManager.getOperationToast(
-                    message: "Complete empty fields!", iconSystemName: "exclamationmark.circle"
-                )
-            }
         }
-        
-        
+        .padding(.bottom, 30)
+
     }
 }
 
