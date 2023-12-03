@@ -14,6 +14,7 @@
 		ED0BF0C72B1D1AE2006B4004 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = ED0BF0C62B1D1AE2006B4004 /* Starscream */; };
 		ED0BF0C92B1D486E006B4004 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BF0C82B1D486E006B4004 /* ProductImageView.swift */; };
 		ED0BF0CB2B1D4901006B4004 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BF0CA2B1D4901006B4004 /* ProductDetailsView.swift */; };
+		ED0BF0CD2B1D4C61006B4004 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = ED0BF0CC2B1D4C61006B4004 /* Starscream */; };
 		ED26E7DC2A032AC900F676AB /* MultipartFormDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26E7DB2A032AC900F676AB /* MultipartFormDataService.swift */; };
 		ED56CD7F2A012733009D5EEB /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD7E2A012733009D5EEB /* LoginScreen.swift */; };
 		ED56CD812A0127F6009D5EEB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56CD802A0127F6009D5EEB /* MainView.swift */; };
@@ -92,6 +93,7 @@
 				EDCB7A4B2A0401A6003DC725 /* SimpleToast in Frameworks */,
 				C348629866A69B8E86638E2D /* Pods_Pawted.framework in Frameworks */,
 				ED0BF0C72B1D1AE2006B4004 /* Starscream in Frameworks */,
+				ED0BF0CD2B1D4C61006B4004 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +252,7 @@
 			packageProductDependencies = (
 				EDCB7A4A2A0401A6003DC725 /* SimpleToast */,
 				ED0BF0C62B1D1AE2006B4004 /* Starscream */,
+				ED0BF0CC2B1D4C61006B4004 /* Starscream */,
 			);
 			productName = Pawted;
 			productReference = EDF9CC5A29E0DD6E00ECE010 /* Pawted.app */;
@@ -514,6 +517,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pawted/Preview Content\"";
 				DEVELOPMENT_TEAM = H3PVH8B766;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pawted/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -545,6 +549,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pawted/Preview Content\"";
 				DEVELOPMENT_TEAM = H3PVH8B766;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pawted/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -609,6 +614,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		ED0BF0C62B1D1AE2006B4004 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED0BF0C52B1D1AE2006B4004 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		ED0BF0CC2B1D4C61006B4004 /* Starscream */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ED0BF0C52B1D1AE2006B4004 /* XCRemoteSwiftPackageReference "Starscream" */;
 			productName = Starscream;

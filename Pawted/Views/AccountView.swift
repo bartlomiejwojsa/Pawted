@@ -30,9 +30,8 @@ struct AccountView: View {
             List {
                 Button("Orders") {
                     // Navigate to OrdersView
-                }
-                .onTapGesture {
                     hasClickedNotImplemented.toggle()
+
                 }
                 Button("Logout") {
                     userService.logout()
